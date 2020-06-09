@@ -9,10 +9,9 @@ sessionInfo()
 # simulation settings
 simsettings <- expand.grid("t"=c(9,50,100), # number of mediators
                            "n"=c(1,2,10,40)*50)
-simsettings <- simsettings[simsettings$t==100,]
 
 # initialize for parallel cluster jobs
-args <- 12
+args <- 1
 if (!grepl("apple",sessionInfo()[[1]]$platform)) {
   args <- commandArgs(trailingOnly=TRUE) # for CMD BATCH '--args 1'
   simsettings <- simsettings[rep(1:nrow(simsettings),each=1000),]
